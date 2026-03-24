@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แผนการจัดการเรียนรู้ดิจิทัล: วรรณคดีและกวีนิพนธ์ - โคลงสี่สุภาพ</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- SweetAlert2 (Popup สวยๆ) -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        body { font-family: 'Sarabun', sans-serif; background-color: #f0fdfa; }
+        h1, h2, h3, h4, h5, h6, .font-prompt { font-family: 'Prompt', sans-serif; }
+        .math-display { overflow-x: auto; overflow-y: hidden; }
+        .klong-circle { display: inline-block; width: 1.5rem; height: 1.5rem; border-radius: 50%; border: 2px solid #0d9488; text-align: center; line-height: 1.25rem; font-size: 0.75rem; font-weight: bold; margin: 0 0.1rem; }
+        .klong-ek { background-color: #ccfbf1; border-color: #0f766e; color: #0f766e; }
+        .klong-tho { background-color: #e0f2fe; border-color: #0369a1; color: #0369a1; }
+        .klong-normal { background-color: #f3f4f6; border-color: #9ca3af; color: transparent; }
+    </style>
+</head>
+<body class="text-gray-800 pb-20">
+
+    <!-- Navbar -->
+    <nav class="bg-teal-800 text-white p-4 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-feather-pointed text-2xl text-yellow-300"></i>
+                <div>
+                    <span class="font-bold text-lg font-prompt block leading-tight">Digital Lesson Plan</span>
+                    <span class="text-xs text-teal-200">Active Learning & Technology Integration</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto max-w-5xl p-4 md:p-8 my-6 bg-white shadow-xl rounded-xl border border-teal-100">
+        
+        <!-- Header: School & Teacher Info -->
+        <header class="border-b-4 border-teal-500 pb-6 mb-8">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-6">
+                <div class="flex-1">
+                    <h5 class="text-teal-600 font-bold uppercase tracking-wide text-sm mb-1">กลุ่มสาระการเรียนรู้ภาษาไทย</h5>
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 font-prompt">โรงเรียนบ้านห้วยเย็น</h1>
+                    <div class="mt-4 space-y-1">
+                        <h2 class="text-2xl font-bold text-gray-800">เรื่อง การแต่งโคลงสี่สุภาพ</h2>
+                        <h3 class="text-lg text-gray-500 font-light">(Composing Klong Si Suphap Poetry)</h3>
+                    </div>
+                </div>
+                
+                <div class="bg-teal-50 p-5 rounded-xl border border-teal-200 min-w-[280px] shadow-sm">
+                    <div class="flex items-center gap-3 mb-2 border-b border-teal-200 pb-2">
+                        <div class="bg-teal-600 text-white w-8 h-8 rounded-full flex items-center justify-center"><i class="fa-solid fa-user-tie"></i></div>
+                        <div>
+                            <p class="text-xs text-gray-500">ครูผู้สอน</p>
+                            <p class="font-bold text-teal-900">นายสาธิต ศิริวัชน์</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-700">
+                        <p class="flex justify-between"><span><i class="fa-solid fa-book mr-2 text-teal-500"></i>วิชา:</span> <span class="font-bold">ภาษาไทย (ท21101)</span></p>
+                        <p class="flex justify-between"><span><i class="fa-solid fa-layer-group mr-2 text-teal-500"></i>ชั้น:</span> <span class="font-bold">มัธยมศึกษาปีที่ 1</span></p>
+                        <p class="flex justify-between"><span><i class="fa-solid fa-calendar-alt mr-2 text-teal-500"></i>ภาคเรียน:</span> <span class="font-bold">ภาคเรียนที่ 1</span></p>
+                        <p class="flex justify-between"><span><i class="fa-regular fa-clock mr-2 text-teal-500"></i>เวลา:</span> <span class="font-bold">4 คาบ (200 นาที)</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Innovation Link & Download Button -->
+            <div class="mt-6 p-4 bg-gradient-to-r from-emerald-400 to-teal-600 rounded-lg text-white shadow-lg flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-4">
+                    <div class="bg-white/20 p-3 rounded-full backdrop-blur-sm">
+                        <i class="fa-solid fa-laptop-code text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg font-prompt">สื่อการสอนนวัตกรรม (Collaborative Platform)</h3>
+                        <p class="text-teal-100 text-sm">ThaiPoetry Studio (Interactive Canvas & Wordwall)</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+                    <!-- Download Button -->
+                    <a href="#" target="_blank" class="bg-white/20 border border-white/50 text-white px-5 py-2 rounded-full font-bold hover:bg-white/30 transition shadow-md flex items-center justify-center text-sm backdrop-blur-sm whitespace-nowrap">
+                        <i class="fa-brands fa-google-drive mr-2"></i> ดาวน์โหลดแผนฯ
+                    </a>
+                    
+                    <!-- Open App Button -->
+                    <a href="#" target="_blank" class="bg-white text-teal-700 px-6 py-2 rounded-full font-bold hover:bg-teal-50 transition shadow-md transform hover:scale-105 flex items-center justify-center whitespace-nowrap">
+                        <i class="fa-solid fa-play mr-2"></i> เปิดใช้งาน App
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Left Column: Info & Standards -->
+            <div class="lg:col-span-1 space-y-6">
+                <!-- Learning Outcomes -->
+                <div class="bg-amber-50 p-5 rounded-lg border-l-4 border-amber-500 shadow-sm">
+                    <h3 class="font-bold text-lg text-amber-800 mb-3 font-prompt">
+                        <i class="fa-solid fa-scroll mr-2"></i> มาตรฐานและตัวชี้วัด
+                    </h3>
+                    <p class="text-sm text-gray-700 leading-relaxed text-justify">
+                        <b>มาตรฐาน ท 4.1</b> เข้าใจธรรมชาติของภาษาและหลักภาษาไทย การเปลี่ยนแปลงของภาษาและพลังของภาษา ภูมิปัญญาทางภาษา และรักษาภาษาไทยไว้เป็นสมบัติของชาติ<br><br>
+                        <b>ตัวชี้วัด ม.1/5</b> แต่งบทร้อยกรอง (โคลงสี่สุภาพ) ได้อย่างถูกต้องตามฉันทลักษณ์และมีความหมายสมบูรณ์
+                    </p>
+                </div>
+
+                <!-- Concept & Equations -->
+                <div class="bg-white p-5 rounded-lg border border-teal-100 shadow-sm">
+                    <h3 class="font-bold text-lg text-teal-800 mb-3 font-prompt flex items-center">
+                        <i class="fa-solid fa-book-open text-teal-600 mr-2"></i> โครงสร้างและฉันทลักษณ์
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-teal-50 p-3 rounded text-center border border-teal-100">
+                            <span class="text-xs text-teal-700 block mb-2 font-bold">กฏเหล็ก: บังคับเอก ๗ โท ๔</span>
+                            <div class="math-display flex flex-col items-center space-y-2 py-2">
+                                <!-- Line 1 -->
+                                <div class="flex gap-1">
+                                    <span class="klong-circle klong-normal">o</span><span class="klong-circle klong-normal">o</span><span class="klong-circle klong-normal">o</span><span class="klong-circle klong-ek">อ</span><span class="klong-circle klong-tho">ท</span>
+                                    <span class="ml-4 klong-circle klong-normal">o</span><span class="klong-circle klong-normal">o</span>
+                                </div>
+                                <!-- Line 2 -->
+                                <div class="flex gap-1">
+                                    <span class="klong-circle klong-normal">o</span><span class="klong-circle klong-ek">อ</span><span class="klong-circle klong-normal">o</span><span class="klong-circle klong-normal">o</span><span class="klong-circle klong-normal">o</span>
+                                    <span class="ml-4 klong-circle klong-ek">อ</span><span class="klong-circle klong-tho">ท</span>
+                                </div>
+                                <!-- Line 3 -->
+                                <div class="flex gap-1">
+                                    <span class="klong-circle klong-normal">o</span><span class="klong-circle klong-normal">o</span><span class="klong-circle klong-ek">อ</span><span class="klong-circle klong-normal">o</span><span class="klong-circle klong-normal">o</span>
+                                    <span class="ml-4 klong-circle klong-normal">o</span><span class="klong-circle klong-normal">o</span>
+                                </div>
+                                <!-- Line 4 -->
+                                <div class="flex gap-1">
+                                    <span class="klong-circle klong-normal">o</span><span class="klong-circle klong-ek">อ</span><span class="klong-circle klong-normal">o</span><span class="klong-circle klong-normal">o</span><span class="klong-circle klong-tho">ท</span>
+                                    <span class="ml-4 klong-circle klong-ek">อ</span><span class="klong-circle klong-tho">ท</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-teal-50 p-3 rounded text-center border border-teal-100">
+                            <span class="text-xs text-teal-600 block mb-1">กลวิธีจดจำ (Mnemonic)</span>
+                            <div class="text-sm font-bold text-teal-900 mt-2">
+                                "เสียงก้องกังวานหวาน <span class="text-emerald-600">เอกเจ็ด</span><br>
+                                ตำแหน่งจัดวางเสร็จ <span class="text-sky-600">โทสี่</span>"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Objectives -->
+                <div class="bg-teal-50 p-5 rounded-lg border border-teal-200">
+                    <h3 class="font-bold text-lg text-teal-900 mb-3 font-prompt">
+                        <i class="fa-solid fa-bullseye mr-2"></i> จุดประสงค์ (KPA)
+                    </h3>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex gap-2">
+                            <span class="badge bg-blue-200 text-blue-800 px-2 rounded font-bold">K</span>
+                            <span>นักเรียนสามารถอธิบายข้อบังคับ คณะ และสัมผัสของโคลงสี่สุภาพ (เอก ๗ โท ๔) ได้อย่างถูกต้อง</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="badge bg-green-200 text-green-800 px-2 rounded font-bold">P</span>
+                            <span>นักเรียนสามารถแต่งโคลงสี่สุภาพได้อย่างน้อยกลุ่มละ 1 บท โดยมีใจความสอดคล้องกับหัวข้อที่กำหนดและถูกต้องตามฉันทลักษณ์</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="badge bg-rose-200 text-rose-800 px-2 rounded font-bold">A</span>
+                            <span>นักเรียนเห็นคุณค่าของความงามทางภาษาไทย และมีส่วนร่วมในการทำงานกลุ่มอย่างกระตือรือร้น</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Right Column: Process -->
+            <div class="lg:col-span-2">
+                <div class="bg-white rounded-xl border border-teal-100 shadow-lg overflow-hidden">
+                    <div class="bg-teal-50 p-4 border-b border-teal-100 flex justify-between items-center">
+                        <h3 class="font-bold text-xl text-teal-800 font-prompt">
+                            <i class="fa-solid fa-chalkboard-teacher mr-2"></i> กิจกรรมการเรียนรู้ (Inquiry & Collaborative Workshop)
+                        </h3>
+                    </div>
+
+                    <div class="p-6 space-y-6">
+                        
+                        <!-- Step 1 -->
+                        <div class="relative pl-8 border-l-2 border-teal-300">
+                            <div class="absolute -left-[17px] top-0 bg-teal-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">1</div>
+                            <h4 class="font-bold text-gray-800 font-prompt text-lg">ขั้นนำเข้าสู่บทเรียน (Engagement) <span class="text-xs bg-gray-100 px-2 py-1 rounded ml-2 text-gray-600">20 นาที</span></h4>
+                            <div class="mt-2 text-gray-600 text-sm space-y-2">
+                                <p>• <b>Stimulus (กระตุ้นความสนใจ):</b> ครูเปิดสื่อมัลติมีเดีย "เสียงอ่านทำนองเสนาะโคลงสี่สุภาพ" (เช่น โคลงบท "เสียงลือเสียงเล่าอ้าง") ให้นักเรียนหลับตาฟังและจินตนาการตาม</p>
+                                
+                                <div class="mt-3 mb-3">
+                                    <div class="bg-teal-50 border border-teal-200 rounded-lg p-3">
+                                        <p class="text-sm font-bold text-teal-800 mb-2"><i class="fa-solid fa-headphones mr-2"></i>สื่อประกอบ: Youtube Audio & Visualizer</p>
+                                        <!-- Real YouTube Embed -->
+                                        <div class="relative w-full aspect-video rounded-lg overflow-hidden shadow-sm bg-black">
+                                            <iframe 
+                                                class="absolute top-0 left-0 w-full h-full border-0" 
+                                                src="https://www.youtube.com/embed/_EVJmJKE1PM?si=IzY1P46UkCUgnpyw" 
+                                                title="YouTube video player" 
+                                                frameborder="0" 
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                                referrerpolicy="strict-origin-when-cross-origin" 
+                                                allowfullscreen>
+                                            </iframe>
+                                        </div>
+                                        <p class="text-xs text-teal-700 mt-2 text-center">
+                                            <i class="fa-solid fa-circle-info mr-1"></i> หากวิดีโอไม่เล่นในหน้านี้ <a href="https://youtu.be/_EVJmJKE1PM?si=IzY1P46UkCUgnpyw" target="_blank" class="underline font-bold hover:text-teal-900">คลิกที่นี่เพื่อเปิดดูบน YouTube</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <p>• <b>Discussion:</b> ครูตั้งคำถามท้าทาย: "นักเรียนคิดว่าความไพเราะของบทกวีนี้ เกิดจากอะไร? ระหว่าง 'ความหมาย' หรือ 'จังหวะการลงเสียง'?"</p>
+                                <p>• <b>Onboarding:</b> นำเข้าสู่เรื่องการจัดวางตำแหน่งเสียงที่เป็นความลับของกวีไทย "เอก ๗ โท ๔"</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="relative pl-8 border-l-2 border-teal-300">
+                            <div class="absolute -left-[17px] top-0 bg-teal-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">2</div>
+                            <h4 class="font-bold text-gray-800 font-prompt text-lg">ขั้นสำรวจและค้นพบ (Discovery & Analysis) <span class="text-xs bg-gray-100 px-2 py-1 rounded ml-2 text-gray-600">40 นาที</span></h4>
+                            <div class="mt-2 text-gray-600 text-sm space-y-2">
+                                <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2 py-1 rounded font-bold mb-1">[Gamification] กิจกรรม: ถอดรหัสลับกวี (Wordwall Puzzle)</span>
+                                <p>• <b>Group Formation:</b> แบ่งกลุ่มนักเรียนกลุ่มละ 4-5 คน (คละความสามารถ)</p>
+                                <p>• <b>Mission:</b> ให้นักเรียนใช้แท็บเล็ต/สมาร์ทโฟน สแกน QR Code เข้าสู่เกม <b>Wordwall</b> เป็นเกมลากวางคำ (Drag & Drop) เพื่อเรียงบทกวีที่สลับตำแหน่งกันอยู่ให้สมบูรณ์</p>
+                                <p>• <b>Guided Inquiry:</b> เมื่อเรียงเสร็จ ครูให้แต่ละกลุ่มสังเกตและวงกลม "คำที่มีรูปวรรณยุกต์เอกและโท" ในแผ่นงาน เพื่อให้นักเรียนค้นพบกฎ "เอก ๗ โท ๔" และตำแหน่งสัมผัสด้วยตนเอง ก่อนที่ครูจะสรุปผังฉันทลักษณ์บนกระดาน</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="relative pl-8 border-l-2 border-teal-300">
+                            <div class="absolute -left-[17px] top-0 bg-teal-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">3</div>
+                            <h4 class="font-bold text-gray-800 font-prompt text-lg">ขั้นฝึกปฏิบัติและสร้างสรรค์ (Practice & Creation) <span class="text-xs bg-gray-100 px-2 py-1 rounded ml-2 text-gray-600">80 นาที</span></h4>
+                            <div class="mt-2 text-gray-600 text-sm space-y-2">
+                                <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2 py-1 rounded font-bold mb-1">[Workshop Phase] กิจกรรม: ThaiPoetry Studio (Padlet Canvas)</span>
+                                <p>• <b>Brainstorming:</b> กำหนดหัวข้อการแต่งกวี เช่น "ของดีบ้านห้วยเย็น" หรือ "ชีวิตวัยเรียน"</p>
+                                <p>• <b>Drafting:</b> แต่ละกลุ่มระดมสมองหาคำศัพท์ที่เกี่ยวข้อง โดยแยกเป็นคลังคำธรรมดา คลังคำเอก และคลังคำโท</p>
+                                <p>• <b>Collaborative Writing:</b> นักเรียนร่วมกันแต่งโคลงสี่สุภาพ 1 บท ลงในกระดานโต้ตอบ <b>Padlet</b> ของห้องเรียน โดยครูสามารถมอนิเตอร์และให้คำแนะนำ (Feedback) แบบ Real-time ผ่านหน้าจอโปรเจคเตอร์</p>
+                                <p>• <b>Rule Checking:</b> อนุญาตให้นักเรียนใช้ "คำตาย" แทนที่ "เอก" ได้ (บูรณาการความรู้หลักภาษา)</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="relative pl-8 border-l-2 border-teal-300">
+                            <div class="absolute -left-[17px] top-0 bg-teal-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">4</div>
+                            <h4 class="font-bold text-gray-800 font-prompt text-lg">ขั้นนำเสนอและวิจารณ์ (Presentation & Peer Review) <span class="text-xs bg-gray-100 px-2 py-1 rounded ml-2 text-gray-600">40 นาที</span></h4>
+                            <div class="mt-2 text-gray-600 text-sm space-y-2">
+                                <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2 py-1 rounded font-bold mb-1">[Showcase Phase] กิจกรรม: Poetry Slam </span>
+                                <p>• <b>Showtime:</b> ตัวแทนกลุ่มออกมาอ่านบทกวีของตนเองหน้าชั้นเรียน (ส่งเสริมทักษะการพูดและแสดงออก)</p>
+                                <p>• <b>Peer Review:</b> เพื่อนกลุ่มอื่นร่วมกันตรวจสอบความถูกต้องของฉันทลักษณ์ผ่านจอ Padlet และกดให้คะแนน (Rate by stars) หรือคอมเมนต์ชื่นชมในจุดที่ใช้คำได้สละสลวย</p>
+                                <p>• <b>Teacher's Role:</b> ครูทำหน้าที่เป็น Commentator ให้ข้อเสนอแนะเชิงบวก (Positive Feedback) และชี้แนะการปรับปรุงการเลือกใช้คำ (Diction)</p>
+                            </div>
+                        </div>
+
+                         <!-- Step 5 -->
+                         <div class="relative pl-8 border-l-2 border-teal-300">
+                            <div class="absolute -left-[17px] top-0 bg-teal-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">5</div>
+                            <h4 class="font-bold text-gray-800 font-prompt text-lg">ขั้นสรุปและประเมินผล (Reflection & Evaluation) <span class="text-xs bg-gray-100 px-2 py-1 rounded ml-2 text-gray-600">20 นาที</span></h4>
+                            <div class="mt-2 text-gray-600 text-sm space-y-2">
+                                <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2 py-1 rounded font-bold mb-1">[Wrap-up Phase]</span>
+                                <p>• <b>Concept Mapping:</b> ครูและนักเรียนร่วมกันสรุปความรู้เรื่องฉันทลักษณ์ของโคลงสี่สุภาพอีกครั้ง</p>
+                                <p>• <b>Exit Ticket:</b> นักเรียนทำแบบทดสอบสั้นๆ (Quizizz หรือ Google Forms) 5 ข้อ เป็นรายบุคคล เพื่อวัดความเข้าใจโครงสร้างและคำเอกคำโท</p>
+                                <p>• <b>Appreciation:</b> มอบเกียรติบัตรหรือคะแนนพิเศษให้กลุ่มที่ได้รับโหวต "กวียอดเยี่ยม" ประจำสัปดาห์</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 1: Post Lesson Reflection -->
+        <section class="mt-8 bg-white p-6 rounded-xl shadow-lg border-t-4 border-emerald-500 break-inside-avoid">
+            <h3 class="font-bold text-xl text-gray-800 mb-4 font-prompt flex items-center">
+                <i class="fa-solid fa-clipboard-check text-emerald-600 mr-2"></i> บันทึกหลังการจัดการเรียนรู้ (สำหรับครูผู้สอน)
+            </h3>
+            
+            <form id="reflectionForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Hidden Fields for Metadata -->
+                <input type="hidden" name="teacher" value="นายสาธิต ศิริวัชน์">
+                <input type="hidden" name="subject" value="ภาษาไทย (ท21101)">
+                <input type="hidden" name="date" id="currentDate">
+
+                <div class="space-y-2">
+                    <label class="block text-sm font-bold text-gray-700">1. ผลสัมฤทธิ์ทางการเรียน (จำนวน ผ่าน/ไม่ผ่าน)</label>
+                    <textarea name="result" id="result" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none h-32 resize-none" placeholder="เช่น นักเรียนแต่งโคลงผ่านเกณฑ์ 38 คน ไม่ผ่าน 2 คน..."></textarea>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="block text-sm font-bold text-gray-700">2. ปัญหาและอุปสรรค</label>
+                    <textarea name="problems" id="problems" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none h-32 resize-none" placeholder="เช่น นักเรียนบางกลุ่มยังสับสนการใช้คำตายแทนตำแหน่งเอก..."></textarea>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="block text-sm font-bold text-gray-700">3. ข้อเสนอแนะ / แนวทางแก้ไข</label>
+                    <textarea name="suggestions" id="suggestions" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none h-32 resize-none" placeholder="เช่น ให้แบบฝึกหัดทบทวนเรื่องคำเป็นคำตายเพิ่มเติมในคาบซ่อมเสริม..."></textarea>
+                </div>
+
+                <div class="space-y-2 flex flex-col justify-end">
+                    <div class="bg-emerald-50 p-4 rounded-lg border border-emerald-100 text-sm text-emerald-700 mb-2">
+                        <i class="fa-solid fa-info-circle mr-1"></i> ข้อมูลจะถูกส่งไปยัง Google Sheets (Sheet 1: บันทึกหลังสอน)
+                    </div>
+                    <button type="button" onclick="submitToSheet()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-lg shadow transition transform active:scale-95 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i> บันทึกข้อมูลเข้าระบบ
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Section 2: Supervision Log -->
+        <section class="mt-8 bg-white p-6 rounded-xl shadow-lg border-t-4 border-cyan-500 break-inside-avoid mb-6">
+            <h3 class="font-bold text-xl text-gray-800 mb-4 font-prompt flex items-center">
+                <i class="fa-solid fa-user-check text-cyan-600 mr-2"></i> บันทึกและข้อเสนอแนะจากผู้นิเทศ (Supervision Log)
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Form Input Area -->
+                <div class="md:col-span-2 space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">ชื่อผู้นิเทศการสอน</label>
+                        <input type="text" id="supervisorName" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none" placeholder="ระบุชื่อ-นามสกุล">
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-1">ตำแหน่ง</label>
+                            <input type="text" id="supervisorPosition" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none" placeholder="เช่น ผู้อำนวยการ / หัวหน้ากลุ่มสาระฯ">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-1">วิทยฐานะ</label>
+                            <input type="text" id="supervisorLevel" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none" placeholder="เช่น ชำนาญการพิเศษ / เชี่ยวชาญ">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">ข้อคิดเห็น / ข้อเสนอแนะเพิ่มเติม</label>
+                        <textarea id="supervisorComment" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none h-32 resize-none" placeholder="ระบุข้อเสนอแนะสำหรับการปรับปรุงแผนการสอน..."></textarea>
+                    </div>
+                    <button type="button" onclick="submitSupervision()" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-6 rounded-lg shadow transition flex items-center gap-2">
+                        <i class="fa-solid fa-save"></i> บันทึกผลการนิเทศ
+                    </button>
+                    <p class="text-xs text-gray-400 mt-2">*ข้อมูลจะถูกส่งไปยัง Google Sheets (Sheet 2: การนิเทศ)</p>
+                </div>
+
+                <!-- Summary & Fetch Area -->
+                <div class="md:col-span-1 bg-cyan-50 p-4 rounded-lg border border-cyan-100 flex flex-col">
+                    <h4 class="font-bold text-cyan-800 mb-2 border-b border-cyan-200 pb-2">สรุปผลการนิเทศ</h4>
+                    <div id="supervisionSummaryArea" class="flex-1 overflow-y-auto max-h-60 text-sm text-gray-600 space-y-2 mb-4">
+                        <p class="text-gray-400 italic text-center mt-4">กำลังโหลดข้อมูล...</p>
+                    </div>
+                    <button type="button" onclick="fetchSupervisionSummary()" class="w-full bg-white text-cyan-600 border border-cyan-600 hover:bg-cyan-100 font-bold py-2 rounded-lg transition text-sm">
+                        <i class="fa-solid fa-sync mr-1"></i> ดึงสรุปข้อมูลล่าสุด
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Script for Logic -->
+    <script>
+        // Set Current Date
+        document.getElementById('currentDate').value = new Date().toLocaleDateString('th-TH');
+
+        // Config Variables with updated Web App URL
+        const HARDCODED_URL = 'https://script.google.com/macros/s/AKfycbyCkcOWO32tR2JiMKj1wF3Rf5hNwHgd-XhYHTFjKCAzmZxmDGp-qBuLrITS-rLpOQ7r/exec';
+        
+        let REFLECTION_SCRIPT_URL = HARDCODED_URL;
+        let SUPERVISION_SCRIPT_URL = HARDCODED_URL;
+
+        // --- Logic บันทึกหลังสอน ---
+        function submitToSheet() {
+            const result = document.getElementById('result').value;
+            const problems = document.getElementById('problems').value;
+            const suggestions = document.getElementById('suggestions').value;
+
+            if(!result && !problems && !suggestions) {
+                Swal.fire('แจ้งเตือน', 'กรุณากรอกข้อมูลอย่างน้อย 1 ช่อง', 'warning');
+                return;
+            }
+
+            Swal.fire({ title: 'กำลังบันทึก...', didOpen: () => Swal.showLoading() });
+
+            const formData = new FormData();
+            formData.append('type', 'reflection'); 
+            formData.append('teacher', 'นายสาธิต ศิริวัชน์');
+            formData.append('subject', 'ภาษาไทย (ท21101)');
+            formData.append('date', new Date().toLocaleDateString('th-TH'));
+            formData.append('result', result);
+            formData.append('problems', problems);
+            formData.append('suggestions', suggestions);
+
+            fetch(REFLECTION_SCRIPT_URL, { method: 'POST', body: formData, mode: 'no-cors' })
+            .then(() => {
+                Swal.fire('สำเร็จ', 'บันทึกหลังสอนลง Google Sheet เรียบร้อยแล้ว', 'success');
+                document.getElementById('result').value = '';
+                document.getElementById('problems').value = '';
+                document.getElementById('suggestions').value = '';
+            })
+            .catch(err => Swal.fire('Error', 'เกิดข้อผิดพลาดในการส่งข้อมูล', 'error'));
+        }
+
+        // --- Logic การนิเทศ ---
+        function submitSupervision() {
+            const name = document.getElementById('supervisorName').value;
+            const position = document.getElementById('supervisorPosition').value;
+            const level = document.getElementById('supervisorLevel').value;
+            const comment = document.getElementById('supervisorComment').value;
+
+            if(!name || !comment) {
+                Swal.fire('แจ้งเตือน', 'กรุณากรอกชื่อผู้นิเทศและข้อเสนอแนะ', 'warning');
+                return;
+            }
+
+            Swal.fire({ title: 'กำลังส่งข้อมูล...', didOpen: () => Swal.showLoading() });
+
+            const formData = new FormData();
+            formData.append('type', 'supervision'); 
+            formData.append('supervisor', name);
+            formData.append('position', position); 
+            formData.append('level', level);       
+            formData.append('comment', comment);
+            formData.append('date', new Date().toLocaleDateString('th-TH'));
+
+            fetch(SUPERVISION_SCRIPT_URL, { method: 'POST', body: formData, mode: 'no-cors' })
+            .then(() => {
+                Swal.fire('สำเร็จ', 'บันทึกผลการนิเทศลง Google Sheet เรียบร้อยแล้ว', 'success');
+                document.getElementById('supervisorName').value = '';
+                document.getElementById('supervisorPosition').value = '';
+                document.getElementById('supervisorLevel').value = '';
+                document.getElementById('supervisorComment').value = '';
+                
+                // Refresh list automatically
+                setTimeout(() => fetchSupervisionSummary(false), 1000);
+            })
+            .catch(err => Swal.fire('Error', 'เกิดข้อผิดพลาดในการส่งข้อมูล', 'error'));
+        }
+
+        // --- Logic ดึงสรุปผล ---
+        function fetchSupervisionSummary(showLoading = true) {
+            const fetchData = () => {
+                fetch(SUPERVISION_SCRIPT_URL)
+                    .then(response => response.json())
+                    .then(data => {
+                        const area = document.getElementById('supervisionSummaryArea');
+                        if (data && data.length > 0) {
+                            area.innerHTML = ''; 
+                            data.forEach(item => {
+                                const dateStr = new Date(item.timestamp).toLocaleDateString('th-TH');
+                                let positionText = item.position ? item.position : '';
+                                let levelText = item.level ? item.level : '';
+                                let detailText = [positionText, levelText].filter(Boolean).join(' | ');
+
+                                area.innerHTML += `
+                                    <div class="bg-white p-3 rounded border border-cyan-100 shadow-sm text-xs mb-2">
+                                        <p class="font-bold text-cyan-800 text-sm">${item.supervisor}</p>
+                                        ${detailText ? `<p class="text-xs text-cyan-600 mb-1">${detailText}</p>` : ''}
+                                        <p class="text-gray-700 italic mt-1">"${item.comment}"</p>
+                                        <div class="text-right mt-1"><span class="text-gray-400 text-[10px]">${dateStr}</span></div>
+                                    </div>
+                                `;
+                            });
+                        } else {
+                            area.innerHTML = '<p class="text-gray-400 italic text-center mt-4">ยังไม่มีข้อมูลการนิเทศ</p>';
+                        }
+                    })
+                    .catch(err => {
+                        console.error('Fetch error:', err);
+                        const area = document.getElementById('supervisionSummaryArea');
+                        area.innerHTML = '<p class="text-red-400 text-xs text-center mt-4">ไม่สามารถดึงข้อมูลได้ โปรดตรวจสอบการตั้งค่าสิทธิ์ Web App</p>';
+                    });
+            };
+
+            if(showLoading) {
+                Swal.fire({ title: 'กำลังดึงข้อมูล...', timer: 1000, didOpen: () => Swal.showLoading() }).then(() => {
+                    fetchData();
+                });
+            } else {
+                fetchData();
+            }
+        }
+
+        // Auto fetch on load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                fetchSupervisionSummary(false); 
+            }, 800);
+        });
+    </script>
+</body>
+</html>
